@@ -42,6 +42,14 @@
     "extra": {
         "branch-alias": {
             "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Scool\\Timetables\\Providers\\TimetablesServiceProvider"
+            ],
+            "aliases": {
+                "ScoolStaff": "Scool\\Timetables\\Timetables"
+            }
         }
     },
     "config": {

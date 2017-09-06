@@ -19,6 +19,10 @@ class TimetablesServiceProvider extends ServiceProvider
         if (!defined('SCOOL_TIMETABLES_PATH')) {
             define('SCOOL_TIMETABLES_PATH', realpath(__DIR__.'/../../'));
         }
+
+        $this->app->bind('Timetables', function () {
+            return new \Scool\Timetables\Timetables();
+        });
     }
 
     /**

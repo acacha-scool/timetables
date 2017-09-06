@@ -21,32 +21,15 @@ class CreateLessonsTable extends Migration
             $table->integer('location_id')->unsigned()->nullable();
             $table->integer('day_id')->unsigned()->nullable();
             $table->integer('timeslot_id')->unsigned()->nullable();
-            $table->string('state')->nullable();
+            $table->integer('vacancy_id')->unsigned()->nullable();
+            $table->integer('submodule_id')->unsigned()->nullable();
+            $table->integer('classroom_id')->unsigned()->nullable();
+            $table->string('code');
+            $table->string('state');
             $table->timestamps();
             $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('day_id')->references('id')->on('days');
             $table->foreign('timeslot_id')->references('id')->on('timeslots');
-        });
-
-        Schema::create('lesson_user', function (Blueprint $table) {
-            $table->integer('lesson_id')->unsigned();
-            $table->integer('user_id')->unsigned();
-            $table->timestamps();
-            $table->unique(['lesson_id', 'user_id']);
-        });
-
-        Schema::create('lesson_submodule', function (Blueprint $table) {
-            $table->integer('lesson_id')->unsigned();
-            $table->integer('submodule_id')->unsigned();
-            $table->timestamps();
-            $table->unique(['lesson_id', 'submodule_id']);
-        });
-
-        Schema::create('classroom_lesson', function (Blueprint $table) {
-            $table->integer('classroom_id')->unsigned();
-            $table->integer('lesson_id')->unsigned();
-            $table->timestamps();
-            $table->unique(['classroom_id', 'lesson_id']);
         });
 
     }
@@ -59,8 +42,5 @@ class CreateLessonsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('lessons');
-        Schema::dropIfExists('lesson_user');
-        Schema::dropIfExists('lesson_submodule');
-        Schema::dropIfExists('classroom_lesson');
     }
 }

@@ -5,7 +5,7 @@ namespace Scool\Timetables;
 /**
  * Class Timetables.
  *
- * @package Acacha\Scool\Staff\Providers
+ * @package Scool\Timetables
  */
 class Timetables
 {
